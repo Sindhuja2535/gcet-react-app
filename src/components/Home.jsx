@@ -1,9 +1,11 @@
 import React from "react";
-import { useLocation } from "react-router-dom";
 
-export default function Home() {
-  const location = useLocation();
-  const name = location.state?.name || "Guest";
+const Home = ({ user }) => {
+  return (
+    <div className="form-container">
+      <h2>Welcome {user?.name || "User"}!</h2>
+    </div>
+  );
+};
 
-  return <h2>Welcome {name}!</h2>;
-}
+export default Home;

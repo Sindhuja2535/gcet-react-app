@@ -1,19 +1,32 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import "./Form.css";
 
-export default function Login() {
+const Login = ({ setUser }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
   const navigate = useNavigate();
 
+  const handleLogin = () => {
+    if (email === "test@example.com" && password === "1234") {
+      setUser({ name: "Test User", email });
+      navigate("/home");
+    } else {
+      setError("Wrong email or password!");
+    }
+  };
+
   return (
-    <div>
+    <div className="form-container">
       <h2>Login</h2>
-      <input type="email" placeholder="Email" onChange={(e) => setEmail(e.target.value)} /><br />
-      <input type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)} /><br />
-      <button onClick={() => navigate("/home", { state: { name: email.split("@")[0] } })}>Submit</button>
-      <br />
+      <input type="email" placeholder="Email" value={email} onChange={e => setEmail(e.target.value)} />
+      <input type="password" placeholder="Password" value={password} onChange={e => setPassword(e.target.value)} />
+      {error && <p className="error">{error}</p>}
+      <button onClick={handleLogin}>Submit</button>
       <button onClick={() => navigate("/register")}>Create Account</button>
     </div>
   );
-}
+};
+
+export default Login;
