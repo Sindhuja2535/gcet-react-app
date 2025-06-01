@@ -7,6 +7,7 @@ import Register from "./components/Register";
 import Home from "./components/Home";
 import "./App.css";
 
+
 function App() {
   const [user, setUser] = useState(null);
 
