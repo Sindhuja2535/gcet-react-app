@@ -1,26 +1,29 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-import "./App.css";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import Product from "./components/Product";
 import Cart from "./components/Cart";
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import Login from "./components/Login";
+import Register from "./components/Register";
+import Home from "./components/Home";
+
 function App() {
   return (
     <div>
       <BrowserRouter>
         <header>
           <h1>My Online Shop</h1>
-          <Link to="/">Home</Link>-
-          <Link to="/cart">Cart</Link>
+          <Link to="/">Home</Link> -
+          <Link to="/cart">Cart</Link> -
+          <Link to="/login">Login</Link>
           <hr />
         </header>
 
         <main>
           <Routes>
-            <Route index element={<Product />} />
-            <Route path="/" element={<Product/>}></Route>
-            <Route path="/cart" element={<Cart/>}></Route>
+            <Route path="/" element={<Product />} />
+            <Route path="/cart" element={<Cart />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/home" element={<Home />} />
           </Routes>
         </main>
 
