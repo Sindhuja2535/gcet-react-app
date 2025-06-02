@@ -1,12 +1,11 @@
 import React, { useState } from "react";
-import { BrowserRouter, Routes, Route, Link, useNavigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import Product from "./components/Product";
 import Cart from "./components/Cart";
 import Login from "./components/Login";
 import Register from "./components/Register";
 import Home from "./components/Home";
 import "./App.css";
-
 
 function App() {
   const [user, setUser] = useState(null);
