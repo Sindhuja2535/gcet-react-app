@@ -1,14 +1,14 @@
 
 import React, { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Header from "./Header.jsx";
-import Footer from "./Footer.jsx";
-import Login from "./Login.jsx";
-import Register from "./Register.jsx";
-import Logout from "./Logout.jsx";
-import Product from "./Product.jsx";
-import Cart from "./Cart.jsx";
-import Order from "./Order.jsx";
+import Header from "./components/Header.jsx";
+import Footer from "./components/Footer.jsx";
+import Login from "./components/Login.jsx";
+import Register from "./components/Register.jsx";
+import Logout from "./components/Logout.jsx";
+import Product from "./components/Product.jsx";
+import Cart from "./components/Cart.jsx";
+import Order from "./components/Order.jsx";
 
 
 export const AppContext = React.createContext();
