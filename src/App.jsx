@@ -1,55 +1,52 @@
-import React, { useState } from "react";
-import { AppContext } from "../App";
-import { useContext } from "react";
-import { useNavigate } from "react-router-dom";
-import axios from "axios";
-export default function Register() {
-  const { users, setUsers } = useContext(AppContext);
+import { useState } from "react";
+import reactLogo from "./assets/react.svg";
+import viteLogo from "/vite.svg";
+import "./App.css";
+import Product from "./components/Product";
+import Cart from "./components/Cart";
+import Login from "./components/Login";
+import Register from "./components/Register";
+import Logout from "./components/Logout";
+import Header from "./components/Header";
+import Order from "./components/Order";
+import Footer from "./components/Footer";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { createContext } from "react";
+export const AppContext = createContext();
+function App() {
+  const [users, setUsers] = useState([]);
   const [user, setUser] = useState({});
-  const Navigate = useNavigate();
-  const API = import.meta.env.VITE_API_URL;
-  const handleSubmit = async () => {
-    //setUsers([...users, user]);
-    try {
-      const url = `${API}/users/register`;
-      await axios.post(url, user);
-      Navigate("/login");
-    } catch (err) {
-      console.log(err);
-    }
-  };
+  const [products, setProducts] = useState([]);
+  const [cart, setCart] = useState({});
   return (
-    <div style={{ margin: "30px" }}>
-      <h3>Register</h3>
-      <p>
-        <input
-          type="text"
-          placeholder="Name"
-          onChange={(e) => setUser({ ...user, name: e.target.value })}
-        />
-      </p>
-      <p>
-        <input
-          type="text"
-          placeholder="Email address"
-          onChange={(e) => setUser({ ...user, email: e.target.value })}
-        />
-      </p>
-      <p>
-        <input
-          type="password"
-          placeholder="New Password"
-          onChange={(e) => setUser({ ...user, pass: e.target.value })}
-        />
-      </p>
-      <button onClick={handleSubmit}>Submit</button>
-      <hr />
-      {users &&
-        users.map((value) => (
-          <li>
-            {value.name}-{value.email}-{value.pass}
-          </li>
-        ))}
+    <div>
+      <AppContext.Provider
+        value={{
+          users,
+          setUsers,
+          user,
+          setUser,
+          products,
+          setProducts,
+          cart,
+          setCart,
+        }}
+      >
+        <BrowserRouter>
+          <Header />
+          <Routes>
+            <Route index element={<Product />} />
+            <Route path="/" element={<Product />}></Route>
+            <Route path="/cart" element={<Cart />}></Route>
+            <Route path="/login" element={<Login />}></Route>
+             <Route path="/order" element={<Order />}></Route>
+            <Route path="/logout" element={<Logout />}></Route>
+            <Route path="/register" element={<Register />}></Route>
+          </Routes>
+          <Footer />
+        </BrowserRouter>
+      </AppContext.Provider>
     </div>
   );
 }
+export default App;
