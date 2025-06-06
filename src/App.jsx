@@ -1,52 +1,31 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-import "./App.css";
-import Product from "./components/Product";
-import Cart from "./components/Cart";
-import Login from "./components/Login";
-import Register from "./components/Register";
-import Logout from "./components/Logout";
-import Header from "./components/Header";
-import Order from "./components/Order";
-import Footer from "./components/Footer";
+
+import React, { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { createContext } from "react";
-export const AppContext = createContext();
-function App() {
-  const [users, setUsers] = useState([]);
-  const [user, setUser] = useState({});
+import Header from "./Header";
+import Footer from "./Footer";
+import Login from "./Login";
+import Register from "./Register";
+import Logout from "./Logout";
+import Product from "./Product";
+import Cart from "./Cart";
+import Order from "./Order";
+
+export const AppContext = React.createContext();
+
+export default function App() {
+  const [user, setUser] = useState(null);
   const [products, setProducts] = useState([]);
-  const [cart, setCart] = useState({});
-  return (
-    <div>
-      <AppContext.Provider
-        value={{
-          users,
-          setUsers,
-          user,
-          setUser,
-          products,
-          setProducts,
-          cart,
-          setCart,
-        }}
-      >
-        <BrowserRouter>
-          <Header />
-          <Routes>
-            <Route index element={<Product />} />
-            <Route path="/" element={<Product />}></Route>
-            <Route path="/cart" element={<Cart />}></Route>
-            <Route path="/login" element={<Login />}></Route>
-             <Route path="/order" element={<Order />}></Route>
-            <Route path="/logout" element={<Logout />}></Route>
-            <Route path="/register" element={<Register />}></Route>
-          </Routes>
-          <Footer />
-        </BrowserRouter>
-      </AppContext.Provider>
-    </div>
-  );
+  const [cart, setCart] = useState([]);
+
+  // 🔽 Dummy products go here
+  useEffect(() => {
+    setProducts([
+      { id: 1, name: "Shampoo", description: "Hair care product", price: 120 },
+      { id: 2, name: "Soap", description: "Gentle body soap", price: 40 },
+      { id: 3, name: "Oil", description: "Herbal hair oil", price: 150 },
+      { id: 4, name: "Conditioner", description: "Silky conditioner", price: 180 },
+    ]);
+  }, []);
+  
+  // remaining code...
 }
-export default App;

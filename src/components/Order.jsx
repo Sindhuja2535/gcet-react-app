@@ -1,32 +1,30 @@
-import React, { useState } from "react";
-import { useContext } from "react";
+import React, { useContext } from "react";
 import { AppContext } from "../App";
-import { useEffect } from "react";
-import axios from "axios";
-export default function Order() {
-  const [orders, setOrders] = useState([]);
-  const { user } = useContext(AppContext);
-  const API = import.meta.env.VITE_API_URL;
 
-  const fetchOrders = async () => {
-    const res = await axios.get(`${API}/orders/${user.email}`);
-    setOrders(res.data);
-  }
+const Order = () => {
+  const { cart } = useContext(AppContext);
+  const total = cart.reduce((sum, item) => sum + item.price, 0);
 
-  useEffect(() => {
-fetchOrders()
-  }, []);
   return (
-    <div>
-      <h3>My Orders</h3>
-      <ol>
-        {orders &&
-          orders.map((value) => (
-            <li key={value._id}>
-              {value.email}-{value.orderValue}
-            </li>
-          ))}
-      </ol>
+    <div className="page">
+      <h2>Order Summary</h2>
+      {cart.length === 0 ? (
+        <p>No items in order.</p>
+      ) : (
+        <>
+          <ul>
+            {cart.map((item) => (
+              <li key={item.id}>
+                {item.name} - ₹{item.price}
+              </li>
+            ))}
+          </ul>
+          <h3>Total Bill: ₹{total}</h3>
+          <p>Thank you for your order!</p>
+        </>
+      )}
     </div>
   );
-}
+};
+
+export default Order;
