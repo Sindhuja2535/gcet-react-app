@@ -1,42 +1,53 @@
-import React, { useState, useEffect } from "react";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { useState, createContext } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import "./App.css";
 
-import Header from "./components/Header.jsx";
-import Footer from "./components/Footer.jsx";
-import Login from "./components/Login.jsx";
-import Register from "./components/Register.jsx";
-import Logout from "./components/Logout.jsx";
-import Product from "./components/Product.jsx";
-import Cart from "./components/Cart.jsx";
-import Order from "./components/Order.jsx";  // If this is your order summary
-import Home from "./components/Home.jsx";    // This should exist
-import Orders from "./components/Orders.jsx"; // If showing all orders
+import Product from "./components/Product";
+import Cart from "./components/Cart";
+import Login from "./components/Login";
+import Register from "./components/Register";
+import Logout from "./components/Logout";
+import Header from "./components/Header";
+import Order from "./components/Order";
+import Footer from "./components/Footer";
 
-export const AppContext = React.createContext();
+// Context
+export const AppContext = createContext();
 
-export default function App() {
-  const [user, setUser] = useState(null);
+function App() {
+  const [users, setUsers] = useState([]);
+  const [user, setUser] = useState({ name: "Guest" }); // Default user
   const [products, setProducts] = useState([]);
-  const [cart, setCart] = useState([]);
-  const [orders, setOrders] = useState([]); // ✅ Add this
+  const [cart, setCart] = useState({}); // Object format is fine
 
   return (
-    <BrowserRouter> {/* ✅ Fixed from <Router> */}
-      <AppContext.Provider value={{ user, setUser, products, setProducts, cart, setCart, orders, setOrders }}>
-        <div className="app">
-          <Header />
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/cart" element={user ? <Cart /> : <Navigate to="/login" replace />} />
-            <Route path="/orders" element={user ? <Orders /> : <Navigate to="/login" replace />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />
-            <Route path="/logout" element={<Logout />} />
-            <Route path="*" element={<Navigate to="/" />} />
-          </Routes>
-          <Footer />
-        </div>
-      </AppContext.Provider>
-    </BrowserRouter>
+    <AppContext.Provider
+      value={{
+        users,
+        setUsers,
+        user,
+        setUser,
+        products,
+        setProducts,
+        cart,
+        setCart,
+      }}
+    >
+      <BrowserRouter>
+        <Header />
+        <Routes>
+          <Route index element={<Product />} />
+          <Route path="/" element={<Product />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/order" element={<Order />} />
+          <Route path="/logout" element={<Logout />} />
+          <Route path="/register" element={<Register />} />
+        </Routes>
+        <Footer />
+      </BrowserRouter>
+    </AppContext.Provider>
   );
 }
+
+export default App;
