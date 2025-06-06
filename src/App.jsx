@@ -18,15 +18,24 @@ export default function App() {
   const [products, setProducts] = useState([]);
   const [cart, setCart] = useState([]);
 
-  // 🔽 Dummy products go here
-  useEffect(() => {
-    setProducts([
-      { id: 1, name: "Shampoo", description: "Hair care product", price: 120 },
-      { id: 2, name: "Soap", description: "Gentle body soap", price: 40 },
-      { id: 3, name: "Oil", description: "Herbal hair oil", price: 150 },
-      { id: 4, name: "Conditioner", description: "Silky conditioner", price: 180 },
-    ]);
-  }, []);
-  
-  // remaining code...
+
+   return (
+    <Router>
+      <AppContext.Provider value={{ user, setUser, products, setProducts, cart, setCart, orders, setOrders }}>
+        <div className="app">
+          <Header />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/cart" element={user ? <Cart /> : <Navigate to="/login" replace />} />
+            <Route path="/orders" element={user ? <Orders /> : <Navigate to="/login" replace />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="*" element={<Navigate to="/" />} />
+          </Routes>
+          <Footer />
+        </div>
+      </AppContext.Provider>
+    </Router>
+  );
 }
+  // remaining code...
+
