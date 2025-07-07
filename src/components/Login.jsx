@@ -1,8 +1,8 @@
-
 import React, { useState } from "react";
 import { AppContext } from "../App";
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import './Login.css';
 import axios from "axios";
 export default function Login() {
   const { users, user, setUser } = useContext(AppContext);
@@ -30,7 +30,7 @@ export default function Login() {
   };
 
   return (
-    <div style={{ margin: "30px" }}>
+    <div className="login-container">
       <h3>Login</h3>
       {msg}
       <p>
@@ -49,7 +49,7 @@ export default function Login() {
       </p>
       <button onClick={handleSubmit}>Submit</button>
       <p>
-        <button onClick={goToRegister}>Create Account</button>
+        <button className="create-account-btn" onClick={goToRegister}>Create Account</button>
       </p>
     </div>
   );

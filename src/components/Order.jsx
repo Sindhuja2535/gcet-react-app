@@ -1,30 +1,37 @@
-import React, { useContext } from "react";
+import React, { useState } from "react";
+import { useContext } from "react";
 import { AppContext } from "../App";
+import { useEffect } from "react";
+import axios from "axios";
+import "./Order.css"; // Add this line for CSS
 
-const Order = () => {
-  const { cart } = useContext(AppContext);
-  const total = cart.reduce((sum, item) => sum + item.price, 0);
+export default function Order() {
+  const [orders, setOrders] = useState([]);
+  const { user } = useContext(AppContext);
+  const API = import.meta.env.VITE_API_URL;
+
+  const fetchOrders = async () => {
+    const res = await axios.get(`${API}/orders/${user.email}`);
+    setOrders(res.data);
+  };
+
+  useEffect(() => {
+    fetchOrders();
+  }, []);
 
   return (
-    <div className="page">
-      <h2>Order Summary</h2>
-      {cart.length === 0 ? (
-        <p>No items in order.</p>
-      ) : (
-        <>
-          <ul>
-            {cart.map((item) => (
-              <li key={item.id}>
-                {item.name} - ₹{item.price}
-              </li>
-            ))}
-          </ul>
-          <h3>Total Bill: ₹{total}</h3>
-          <p>Thank you for your order!</p>
-        </>
-      )}
+    <div className="orders-container">
+      <h3 className="orders-title">My Orders</h3>
+      <ol className="orders-list">
+        {orders &&
+          orders.map((value) => (
+            <li key={value._id} className="order-box">
+              <p><strong>Email:</strong> {value.email}</p>
+              <p><strong>Order Value:</strong> ${value.orderValue}</p>
+              <p><strong>Order ID:</strong> {value._id}</p>
+            </li>
+          ))}
+      </ol>
     </div>
   );
-};
-
-export default Order;
+}
