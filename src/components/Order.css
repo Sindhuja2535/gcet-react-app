@@ -1,35 +1,71 @@
-.login-form {
-  background: var(--green-3);
-  padding: 2rem;
+.orders-container {
+  padding: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #22223B;
+  color: #C9ADA7;
+}
+
+.orders-title {
+  font-size: 24px;
+  margin-bottom: 16px;
+}
+
+.orders-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.order-box {
+  background-color: #C9ADA7;
+  border: 1px solid #9A8C98;
   border-radius: 12px;
-  color: var(--green-6);
-  width: 300px;
-  margin: 2rem auto;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  padding: 16px 20px;
+  color: #22223B;
+  min-width: 250px;
+  max-width: 300px;
+  transition: transform 0.2s ease;
 }
 
-.login-form input,
-.login-form button {
-  width: 100%;
-  padding: 0.8rem;
-  margin-bottom: 1rem;
+.order-box:hover {
+  transform: translateY(-3px);
+}
+
+.orders-table-container {
+  width: 500px;
+  max-width: 100%;
+  background: #C9ADA7;
+  border-radius: 12px;
+  padding: 2rem;
+  margin: 0 auto;
+  color: #22223B;
+}
+
+.orders-table th,
+.orders-table td {
+  border: 1px solid #9A8C98;
+  padding: 10px 8px;
+}
+
+.orders-table thead tr {
+  background: #9A8C98;
+  color: #fff;
+}
+
+.order-cancel-btn {
+  background: #9A8C98;
+  color: #fff;
+  padding: 6px 18px;
   border: none;
-  border-radius: 8px;
-  font-size: 1rem;
-}
-
-.login-form input {
-  background: var(--green-6);
-  color: var(--green-1);
-}
-
-.login-form button {
-  background: var(--green-4);
-  color: var(--green-6);
+  border-radius: 6px;
+  font-weight: 600;
   cursor: pointer;
-  transition: background 0.3s ease;
+  transition: background 0.2s;
 }
 
-.login-form button:hover {
-  background: var(--green-2);
+.order-cancel-btn:hover {
+  background: #4A4E69;
 }
