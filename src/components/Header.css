@@ -1,37 +1,37 @@
 .header {
-  background-color: #4A4E69;
-  padding: 14px 20px;
-  width: 100vw;
-  color: #C9ADA7;
-  text-align: center;
+  background-color: #0B2B26;
+  padding: 16px 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  color: #DAF1DE;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  margin-bottom: 30px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
 }
 
-.header h1 {
+.header-title {
   font-size: 2rem;
-  font-weight: 600;
-  margin: 0 0 12px;
-  color: #C9ADA7;
+  font-weight: bold;
+  color: #DAF1DE;
+  flex: 1;
+  text-align: center;
 }
 
-.header a {
+.nav-links {
+  display: flex;
+  gap: 24px;
+  flex: 1;
+  justify-content: flex-end;
+}
+
+.nav-links a {
+  font-size: 1rem;
+  color: #8EB69B;
   text-decoration: none;
-  color: #C9ADA7;
-  margin: 0 6px;
-  font-weight: 500;
-  font-size: 0.9rem;
-  transition: color 0.3s ease;
+  transition: color 0.3s ease, transform 0.2s ease;
 }
 
-.header a:hover {
-  color: #fff;
-  text-decoration: underline;
-}
-
-.header hr {
-  border-top: 1px solid #9A8C98;
-  width: 90%;
-  margin: 15px auto 0;
+.nav-links a:hover {
+  color: #DAF1DE;
+  transform: translateY(-2px);
 }

@@ -1,22 +1,22 @@
-/* index.css */
 html, body, #root {
   height: 100%;
   margin: 0;
   padding: 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #22223B;
-  color: #C9ADA7;
+  background: linear-gradient(to bottom, #051F20, #233547);
+  color: #DAF1DE;
   scroll-behavior: smooth;
 }
 
 a {
-  color: #C9ADA7;
+  color: #8EB69B;
   text-decoration: none;
-  transition: color 0.3s ease;
+  transition: color 0.3s ease, transform 0.2s ease;
 }
 
 a:hover {
-  color: #fff;
+  color: #DAF1DE;
+  transform: scale(1.05);
 }
 
 h1, h2, h3, h4, h5, h6, p {
@@ -28,12 +28,16 @@ h1, h2, h3, h4, h5, h6, p {
 button {
   font-family: inherit;
   font-size: 1rem;
-  cursor: pointer;
+  padding: 0.7rem 1.2rem;
+  background-color: #0B2B26;
+  color: #DAF1DE;
   border: none;
   border-radius: 8px;
+  cursor: pointer;
   transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 button:hover {
-  transform: scale(1.03);
+  background-color: #163B32;
+  transform: translateY(-2px);
 }

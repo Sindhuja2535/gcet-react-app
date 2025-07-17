@@ -1,11 +1,20 @@
 .footer-fixed {
   width: 100%;
-  background: #22223B;
-  color: #C9ADA7;
+  background: #163832; /* forest green */
+  color: #8EB69B;       /* sage green */
   text-align: center;
   padding: 0.7rem 0;
   font-size: 1rem;
   position: relative;
   bottom: 0;
   box-sizing: border-box;
+  box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.2);
+  transition: background 0.3s ease, color 0.3s ease;
 }
+
+.footer-fixed:hover {
+  background: #235347; /* teal */
+  color: #DAF1DE;       /* light mint green */
+}
+
+
