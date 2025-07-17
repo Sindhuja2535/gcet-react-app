@@ -1,71 +1,41 @@
-.orders-container {
+.order-summary {
+  background-color: var(--mint-green);
   padding: 20px;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: #22223B;
-  color: #C9ADA7;
+  border-radius: 10px;
+  margin: 20px auto;
+  width: 95%;
+  max-width: 900px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
 }
 
-.orders-title {
-  font-size: 24px;
+.order-summary h2 {
+  font-size: 1.4rem;
   margin-bottom: 16px;
+  color: var(--dark-green);
 }
 
-.orders-list {
-  list-style: none;
-  padding: 0;
+.order-item {
+  border-bottom: 1px solid var(--sage-green);
+  padding: 10px 0;
   display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.order-box {
-  background-color: #C9ADA7;
-  border: 1px solid #9A8C98;
-  border-radius: 12px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
-  padding: 16px 20px;
-  color: #22223B;
-  min-width: 250px;
-  max-width: 300px;
-  transition: transform 0.2s ease;
+.order-item:last-child {
+  border-bottom: none;
 }
 
-.order-box:hover {
-  transform: translateY(-3px);
-}
-
-.orders-table-container {
-  width: 500px;
-  max-width: 100%;
-  background: #C9ADA7;
-  border-radius: 12px;
-  padding: 2rem;
-  margin: 0 auto;
-  color: #22223B;
-}
-
-.orders-table th,
-.orders-table td {
-  border: 1px solid #9A8C98;
-  padding: 10px 8px;
-}
-
-.orders-table thead tr {
-  background: #9A8C98;
-  color: #fff;
-}
-
-.order-cancel-btn {
-  background: #9A8C98;
-  color: #fff;
-  padding: 6px 18px;
-  border: none;
-  border-radius: 6px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background 0.2s;
-}
-
-.order-cancel-btn:hover {
-  background: #4A4E69;
+/* ------------------ Footer (Footer.css) ------------------ */
+.footer-fixed {
+  width: 100%;
+  background: var(--deep-green);
+  color: var(--mint-green);
+  text-align: center;
+  padding: 1rem 0;
+  font-size: 1.1rem;
+  position: relative;
+  bottom: 0;
+  box-sizing: border-box;
+  border-top: 1px solid var(--teal);
 }

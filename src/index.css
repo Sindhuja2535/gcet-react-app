@@ -1,39 +1,37 @@
-/* index.css */
-html, body, #root {
+/* index.css - Global Reset and Base Styling */
+
+:root {
+  --dark-green: #051F20;
+  --deep-green: #0B2B26;
+  --forest-green: #163832;
+  --teal: #235347;
+  --sage-green: #8EB69B;
+  --mint-green: #DAF1DE;
+  --font-light: #F8F9FA;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
   height: 100%;
-  margin: 0;
-  padding: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #22223B;
-  color: #C9ADA7;
-  scroll-behavior: smooth;
+  background-color: var(--mint-green);
+  color: var(--dark-green);
+  font-family: 'Segoe UI', sans-serif;
 }
 
-a {
-  color: #C9ADA7;
-  text-decoration: none;
-  transition: color 0.3s ease;
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Segoe UI', sans-serif;
+  color: var(--dark-green);
 }
 
-a:hover {
-  color: #fff;
-}
-
-h1, h2, h3, h4, h5, h6, p {
-  margin: 0;
-  padding: 0;
-  color: inherit;
-}
-
-button {
-  font-family: inherit;
-  font-size: 1rem;
-  cursor: pointer;
-  border: none;
-  border-radius: 8px;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-button:hover {
-  transform: scale(1.03);
+/* Container */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
 }

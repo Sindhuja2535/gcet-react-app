@@ -1,67 +1,35 @@
-.login-page-center {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100vw;
-  min-height: 80vh;
-  background: #22223B;
-}
-
 .login-container {
-  background-color: #C9ADA7;
-  max-width: 400px;
-  margin: 60px auto;
-  padding: 2rem;
+  background: var(--mint-green);
+  padding: 30px;
   border-radius: 12px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
-  text-align: center;
-  color: #22223B;
-}
-
-.login-container h3 {
-  margin-bottom: 1rem;
-  font-size: 1.5rem;
-}
-
-.login-container input {
   width: 100%;
-  padding: 0.75rem;
-  margin: 0.5rem 0;
-  border: 1px solid #9A8C98;
-  border-radius: 8px;
-  font-size: 1rem;
+  max-width: 400px;
+  margin: 40px auto;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.login-container input[type="text"],
+.login-container input[type="password"] {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 6px;
+  border: 1px solid var(--teal);
+  box-sizing: border-box;
 }
 
 .login-container button {
-  width: 100%;
-  padding: 0.75rem;
-  font-size: 1rem;
-  font-weight: bold;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  margin-top: 1rem;
+  background-color: var(--forest-green);
   color: white;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 100%;
 }
 
-.login-container button:not(.create-account-btn) {
-  background-color: #4A4E69;
-}
-
-.login-container button:hover:not(.create-account-btn) {
-  background-color: #22223B;
-}
-
-.create-account-btn {
-  background-color: #9A8C98;
-}
-
-.create-account-btn:hover {
-  background-color: #4A4E69;
-}
-
-.login-container .message {
-  margin-top: 10px;
-  color: crimson;
-  font-weight: bold;
+.login-container button:hover {
+  background-color: var(--deep-green);
 }

@@ -3,9 +3,10 @@
   background: #22223B;
   color: #C9ADA7;
   text-align: center;
-  padding: 0.7rem 0;
-  font-size: 1rem;
+  padding: 1rem 0;
+  font-size: 1.1rem;
   position: relative;
   bottom: 0;
   box-sizing: border-box;
+  border-top: 1px solid #4A4E69;
 }

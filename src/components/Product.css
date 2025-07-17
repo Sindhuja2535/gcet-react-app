@@ -1,55 +1,25 @@
-.App-Product-Row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 48px;
-  justify-content: center;
-  padding: 40px;
-  background: #22223B;
-}
-
 .product-card {
-  flex: 0 0 280px;
-  background: #C9ADA7;
-  border-radius: 14px;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.1);
-  padding: 1.5rem;
-  text-align: center;
-  transition: transform 0.2s ease;
-  color: #22223B;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 8px;
+  padding: 10px;
+  background-color: var(--mint-green);
 }
 
 .product-card:hover {
   transform: scale(1.05);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.3);
 }
 
-.product-image {
-  width: 100%;
-  height: 170px;
-  object-fit: cover;
-  border-radius: 10px;
-  margin: 16px 0;
+.rating-stars {
+  color: gold;
+  font-size: 1rem;
+  margin-top: 6px;
 }
 
-.product-card h3 {
-  font-size: 1.1rem;
-  margin-bottom: 0.2rem;
-}
-
-.product-card h4 {
-  color: #4A4E69;
-}
-
-.product-card button {
-  padding: 8px 12px;
-  font-size: 0.9rem;
-  background-color: #4A4E69;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  margin-top: 10px;
-}
-
-.product-card button:hover {
-  background-color: #22223B;
+.description {
+  font-size: 0.85rem;
+  color: var(--deep-green);
+  margin: 8px 0;
 }

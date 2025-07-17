@@ -1,37 +1,51 @@
-/* App.css */
-.app-main-wrapper {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  background-color: #22223B;
+/* App.css - General App Layout & Utility Styling with Custom Theme */
+
+:root {
+  --dark-green: #051F20;
+  --deep-green: #0B2B26;
+  --forest-green: #163832;
+  --teal: #235347;
+  --sage-green: #8EB69B;
+  --mint-green: #DAF1DE;
+  --font-light: #F8F9FA;
 }
 
-.app-content {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 2rem;
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--mint-green);
+  font-family: 'Segoe UI', sans-serif;
+  color: var(--dark-green);
 }
 
-.app-footer {
-  margin-top: auto;
-  text-align: center;
-  padding: 1rem;
-  background-color: #4A4E69;
-  color: #C9ADA7;
-}
-
-.page-title {
-  font-size: 2rem;
+/* Welcome message for home */
+.welcome-message {
+  font-size: 1.5rem;
   font-weight: bold;
-  margin-bottom: 1.5rem;
-  color: #C9ADA7;
+  margin-top: 40px;
+  text-align: center;
+  animation: fadeIn 0.5s ease-in;
+  color: var(--forest-green);
 }
 
-.card-container {
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Product listing grid */
+.App-Product-Row {
   display: flex;
   flex-wrap: wrap;
-  gap: 2rem;
+  gap: 20px;
   justify-content: center;
+  padding: 20px;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+  .App-Product-Row {
+    flex-direction: column;
+    align-items: center;
+  }
 }
