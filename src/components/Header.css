@@ -1,42 +1,37 @@
 .header {
-  background-color: rgb(0, 0, 0); /* light soft black */
+  background-color: #4A4E69;
   padding: 14px 20px;
-  width: 100vw;           /* full viewport width */
-  box-sizing: border-box; /* include padding in width */
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
-  border-radius: 0;       /* no rounding if you want flush edges */
+  width: 100vw;
+  color: #C9ADA7;
   text-align: center;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: #f1f1f1;
   margin-bottom: 30px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
 }
 
 .header h1 {
-  margin: 0 0 12px 0;
   font-size: 2rem;
   font-weight: 600;
-  color: #fff;
+  margin: 0 0 12px;
+  color: #C9ADA7;
 }
 
 .header a {
   text-decoration: none;
-  color: #a8d0ff;
+  color: #C9ADA7;
+  margin: 0 6px;
   font-weight: 500;
   font-size: 0.9rem;
-  margin: 0 6px;
   transition: color 0.3s ease;
 }
 
 .header a:hover {
-  color: #e0eaff;
+  color: #fff;
   text-decoration: underline;
 }
 
 .header hr {
-  margin-top: 15px;
-  border: none;
-  border-top: 1px solid #303030;
+  border-top: 1px solid #9A8C98;
   width: 90%;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 15px auto 0;
 }

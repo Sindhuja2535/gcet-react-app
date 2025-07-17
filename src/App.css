@@ -1,21 +1,37 @@
-
-html, body, #root {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-}
-
+/* App.css */
 .app-main-wrapper {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  background-color: #22223B;
 }
 
-/* Center content for login page, fallback for others */
 .app-content {
   flex: 1;
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 2rem;
 }
 
+.app-footer {
+  margin-top: auto;
+  text-align: center;
+  padding: 1rem;
+  background-color: #4A4E69;
+  color: #C9ADA7;
+}
+
+.page-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  color: #C9ADA7;
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+}
